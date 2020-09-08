@@ -1,4 +1,4 @@
-from telegram.ext import Updater,CommandHandler
+from telegram.ext import Updater,CommandHandler,MessageHandler, Filters
 from Adafruit_IO import Client, Data
 import os
 x = os.getenv('x') # ADAFRUIT_IO_USERNAME
@@ -21,10 +21,20 @@ def off(bot,update):
     value=Data(value=0)
     value_send=aio.create_data('lightbot',value)
 
+def inmes(bot,update):
+    mess_text=update.message.text
+    if mess_text=='turn on':
+        on(bot,update)
+
+    elif mess_text=='turn off':
+        off(bot,update)
+
+
 u=Updater(z)
 dp=u.dispatcher
 dp.add_handler(CommandHandler('turnon',on))
 dp.add_handler(CommandHandler('turnoff',off))
+dp.add_handler(MessageHandler(Filters.text & (~Filters.command),inmes))
 u.start_polling()
 u.idle()
        
