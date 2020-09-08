@@ -8,7 +8,7 @@ z = os.getenv('z')  # TELEGRAM_BOT_TOKEN
 
 def on(bot,update):
     chat_id=update.message.chat_id
-    bot.send_photo(chat_id,photo='https://insmac.org/uploads/posts/2017-05/1495447823_network-led.png')
+    bot.send_photo(chat_id,photo='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Green_sphere.svg/1024px-Green_sphere.svg.png')
     bot.send_message(chat_id,text="Led is on")
     aio = Client(x,y)
     value=Data(value=1)
