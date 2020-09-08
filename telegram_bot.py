@@ -4,13 +4,12 @@ import os
 x = os.getenv('x') # ADAFRUIT_IO_USERNAME
 y = os.getenv('y') # ADAFRUIT_IO_KEY
 z = os.getenv('z')  # TELEGRAM_BOT_TOKEN
-
+aio = Client(x,y)
 
 def on(bot,update):
     chat_id=update.message.chat_id
     bot.send_photo(chat_id,photo='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Green_sphere.svg/1024px-Green_sphere.svg.png')
     bot.send_message(chat_id,text="Led is on")
-    aio = Client(x,y)
     value=Data(value=1)
     value_send=aio.create_data('lightbot',value)
 
@@ -19,7 +18,6 @@ def off(bot,update):
     chat_id=update.message.chat_id
     bot.send_photo(chat_id,photo='https://cainlive.com/wp-content/uploads/2018/08/cropped-clip-art-red-dot-clipart-1.png')
     bot.send_message(chat_id,text="Led is off")
-    aio = Client(x,y)
     value=Data(value=0)
     value_send=aio.create_data('lightbot',value)
 
