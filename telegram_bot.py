@@ -6,6 +6,12 @@ y = os.getenv('y') # ADAFRUIT_IO_KEY
 z = os.getenv('z')  # TELEGRAM_BOT_TOKEN
 aio = Client(x,y)
 
+def start(bot,update):
+    bot.send_message(chat_id,text='''This bot sends data to adafruit for turning on or off the LED...,
+    please type 1- on,/turnon,turn on to lightup the LED .
+                2- off,/turnoff,turn off to put down the LED.
+                thanks''')
+
 def on(bot,update):
     chat_id=update.message.chat_id
     bot.send_message(chat_id,text="Led is on")
@@ -23,15 +29,16 @@ def off(bot,update):
 
 def inmes(bot,update):
     mess_text=update.message.text
-    if mess_text=='turn on' or 'Turn on' or 'on' or 'switch on' or 'Switch on':
+    if mess_text=='turn on' or 'Turn on' or 'on' or 'switch on' or 'Switch on' or 'On':
         on(bot,update)
 
-    elif mess_text=='turn off' or 'Turn off' or 'off' or 'switch off' or 'Switch off':
+    elif mess_text=='turn off' or 'Turn off' or 'off' or 'switch off' or 'Switch off' or 'Off':
         off(bot,update)
 
 
 u=Updater(z)
 dp=u.dispatcher
+dp.add_handler(CommandHandler('start',start))
 dp.add_handler(CommandHandler('turnon',on))
 dp.add_handler(CommandHandler('turnoff',off))
 dp.add_handler(MessageHandler(Filters.text & (~Filters.command),inmes))
