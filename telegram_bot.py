@@ -30,11 +30,17 @@ def off(bot,update):
 
 def inmes(bot,update):
     mess_text=update.message.text
-    if mess_text==('turn on' or 'Turn on' ):
+    if mess_text=='turn on':
         on(bot,update)
 
-    elif mess_text==('turn off' or 'Turn off' ):
+    elif mess_text=='turn off':
         off(bot,update)
+        
+    elif mess_text=='Turn off':
+        off(bot,update)
+        
+    elif mess_text=='Turn on':
+        on(bot,update)
 
 
 u=Updater(z)
