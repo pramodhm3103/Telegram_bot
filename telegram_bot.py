@@ -23,10 +23,10 @@ def off(bot,update):
 
 def inmes(bot,update):
     mess_text=update.message.text
-    if mess_text=='turn on':
+    if mess_text=='turn on' or 'Turn on' or 'on' or 'switch on' or 'Switch on':
         on(bot,update)
 
-    elif mess_text=='turn off':
+    elif mess_text=='turn off' or 'Turn off' or 'off' or 'switch off' or 'Switch off':
         off(bot,update)
 
 
