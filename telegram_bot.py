@@ -46,7 +46,7 @@ def inmes(bot,update):
    
 
 
-u=Updater(z)
+u=Updater(z,use_context=True)
 dp=u.dispatcher
 dp.add_handler(CommandHandler('start',start))
 dp.add_handler(CommandHandler('turnon',on))
