@@ -7,6 +7,7 @@ z = os.getenv('z')  # TELEGRAM_BOT_TOKEN
 aio = Client(x,y)
 
 def start(bot,update):
+    chat_id=update.message.chat_id
     bot.send_message(chat_id,text='''This bot sends data to adafruit for turning on or off the LED...,
     please type 1- on,/turnon,turn on to lightup the LED .
                 2- off,/turnoff,turn off to put down the LED.
