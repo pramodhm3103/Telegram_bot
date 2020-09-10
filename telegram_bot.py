@@ -30,23 +30,33 @@ def off(bot,update):
 
 def inmes(bot,update):
     mess_text=update.message.text
-    x1='turn on'
-    x2='Turn on'
-    x3='on'
-    x4='On'
-    y1='turn off'
-    y2='Turn off'
-    y3='off'
-    y4='Off'
-    if mess_text==(x1 or x2 or x3 or x4):
+    if mess_text=='turn on':
       on(bot,update)
 
-    elif mess_text==(y1 or y2 or y3 or y4):
+    elif mess_text=='On':
+      on(bot,update)
+    
+    elif mess_text=='on':
+      on(bot,update)
+    
+    elif mess_text=='Turn on':
+      on(bot,update)
+    
+    elif mess_text=='Turn off':
+      off(bot,update)
+    
+    elif mess_text=='turn off':
+      off(bot,update)
+    
+    elif mess_text=='Off':
+      off(bot,update)
+    
+    elif mess_text=='off':
       off(bot,update)
    
 
 
-u=Updater(z,use_context=True)
+u=Updater(z)
 dp=u.dispatcher
 dp.add_handler(CommandHandler('start',start))
 dp.add_handler(CommandHandler('turnon',on))
