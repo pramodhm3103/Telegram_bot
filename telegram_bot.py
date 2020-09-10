@@ -30,12 +30,19 @@ def off(bot,update):
 
 def inmes(bot,update):
     mess_text=update.message.text
-    for x='turn on':
-      if mess_text==x:
-        on(bot,update)
+    x1='turn on'
+    x2='Turn on'
+    x3='on'
+    x4='On'
+    y1='turn off'
+    y2='Turn off'
+    y3='off'
+    y4='Off'
+    if mess_text==(x1 or x2 or x3 or x4):
+      on(bot,update)
 
-      elif mess_text=='turn off':
-        off(bot,update)
+    elif mess_text==(y1 or y2 or y3 or y4)::
+      off(bot,update)
    
 
 
