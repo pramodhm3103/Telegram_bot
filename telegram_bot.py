@@ -41,7 +41,7 @@ def inmes(bot,update):
     if mess_text==(x1 or x2 or x3 or x4):
       on(bot,update)
 
-    elif mess_text==(y1 or y2 or y3 or y4)::
+    elif mess_text==(y1 or y2 or y3 or y4):
       off(bot,update)
    
 
